@@ -6,16 +6,17 @@ int main() {
     std::cout << "You need to enter the correct code to continue...";
     std::cout << std::endl;
 
-    int a = 4;
-    int b = 3;
-    int c = 2;
+    const int CodeA = 4;
+    const int CodeB = 3;
+    const int CodeC = 2;
 
-    int sum = a + b + c;
-    int product = a * b * c;
+    const int CodeSum = CodeA + CodeB + CodeC;
+    const int CodeProduct = CodeA * CodeB * CodeC;
 
     std::cout << std::endl;
-    std::cout << sum << std::endl;
-    std::cout << product << std::endl;
+    std::cout << "+ There are 3 numbers to the code." << std::endl;
+    std::cout << "+ The numbers add up to: " << CodeSum << std::endl;
+    std::cout << "+ The numbers multiply to: " << CodeProduct << std::endl;
 
     return 0;
 }

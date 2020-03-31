@@ -18,5 +18,11 @@ int main() {
     std::cout << "+ The numbers add up to: " << CodeSum << std::endl;
     std::cout << "+ The numbers multiply to: " << CodeProduct << std::endl;
 
+    int GuessA, GuessB, GuessC;
+    std::cin >> GuessA;
+    std::cin >> GuessB;
+    std::cin >> GuessC;
+    std::cout << "You Entered: " << GuessA << GuessB << GuessC << std::endl;
+
     return 0;
 }

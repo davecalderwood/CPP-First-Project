@@ -22,7 +22,15 @@ int main() {
     std::cin >> GuessA;
     std::cin >> GuessB;
     std::cin >> GuessC;
-    std::cout << "You Entered: " << GuessA << GuessB << GuessC << std::endl;
+
+    const int GuessSum = GuessA + GuessB + GuessC;
+    const int GuessProduct = GuessA * GuessB * GuessC;
+
+    if (GuessSum == CodeSum && GuessProduct == CodeProduct) {
+        std::cout << "You Win!" << std::endl;
+    }else {
+        std::cout << "You Lose!" << std::endl;
+    }
 
     return 0;
 }

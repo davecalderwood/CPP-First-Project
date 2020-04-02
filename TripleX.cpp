@@ -1,12 +1,16 @@
 #include <iostream>
+#include <ctime>
 
-bool PlayGame() {
-    std::cout << "\nYou are a secret agent breaking into a secure server room.\n";
-    std::cout << "You need to enter the correct code to continue...\n\n";
+void PrintIntroduction(int Difficulty) {
+    std::cout << "\nYou are a secret agent breaking into a level " << Difficulty;
+    std::cout << " secure server room.\nYou need to enter the correct code to continue...\n\n";
+}
+bool PlayGame(int Difficulty) {
+    PrintIntroduction(Difficulty);
 
-    const int CodeA = 4;
-    const int CodeB = 3;
-    const int CodeC = 2;
+    const int CodeA = rand() % Difficulty + Difficulty;
+    const int CodeB = rand() % Difficulty + Difficulty;
+    const int CodeC = rand() % Difficulty + Difficulty;
 
     const int CodeSum = CodeA + CodeB + CodeC;
     const int CodeProduct = CodeA * CodeB * CodeC;
@@ -25,19 +29,30 @@ bool PlayGame() {
 
     // Check if guess is correct
     if (GuessSum == CodeSum && GuessProduct == CodeProduct) {
-        std::cout << "\nYou Win!\n";
+        std::cout << "\nGood work, now on to the next one!\n";
         return true;
     }else {
-        std::cout << "\nYou Lose!\n";
+        std::cout << "\nCareful agent, that's the wrong code... Try again!\n";
         return false;
     }
 }
 
 int main() {
-    while(true) {
-        bool bLevelComplete = PlayGame();
-        std::cin.clear; // Clears errors
-        std::cin.ignore; // Discards buffer
+    srand(time(NULL));
+    
+    int LevelDifficulty = 1;
+    int const MaxDifficulty = 5;
+
+    while (LevelDifficulty <= MaxDifficulty) {
+        bool bLevelComplete = PlayGame(LevelDifficulty);
+        std::cin.clear(); // Clears errors
+        std::cin.ignore(); // Discards buffer
+
+        if (bLevelComplete) {
+            ++LevelDifficulty;
+        }
+        
     }
+    std::cout << "Great work, you have broken in!";
     return 0;
 }

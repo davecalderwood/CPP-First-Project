@@ -1,6 +1,6 @@
 #include <iostream>
 
-int main() {
+void PlayGame() {
     std::cout << "You are a secret agent breaking into a secure server room.\n";
     std::cout << "You need to enter the correct code to continue...\n\n";
 
@@ -14,7 +14,7 @@ int main() {
     std::cout << std::endl;
     std::cout << "+ There are 3 numbers to the code.";
     std::cout << "\n+ The numbers add up to: " << CodeSum;
-    std::cout << "\n+ The numbers multiply to: " << CodeProduct;
+    std::cout << "\n+ The numbers multiply to: " << CodeProduct << std::endl;
 
     // Player guesses
     int GuessA, GuessB, GuessC;
@@ -29,6 +29,9 @@ int main() {
     }else {
         std::cout << "You Lose!\n";
     }
+}
 
+int main() {
+    PlayGame();
     return 0;
 }

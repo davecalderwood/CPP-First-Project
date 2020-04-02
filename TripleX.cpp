@@ -1,7 +1,7 @@
 #include <iostream>
 
-void PlayGame() {
-    std::cout << "You are a secret agent breaking into a secure server room.\n";
+bool PlayGame() {
+    std::cout << "\nYou are a secret agent breaking into a secure server room.\n";
     std::cout << "You need to enter the correct code to continue...\n\n";
 
     const int CodeA = 4;
@@ -25,13 +25,19 @@ void PlayGame() {
 
     // Check if guess is correct
     if (GuessSum == CodeSum && GuessProduct == CodeProduct) {
-        std::cout << "You Win!\n";
+        std::cout << "\nYou Win!\n";
+        return true;
     }else {
-        std::cout << "You Lose!\n";
+        std::cout << "\nYou Lose!\n";
+        return false;
     }
 }
 
 int main() {
-    PlayGame();
+    while(true) {
+        bool bLevelComplete = PlayGame();
+        std::cin.clear; // Clears errors
+        std::cin.ignore; // Discards buffer
+    }
     return 0;
 }
